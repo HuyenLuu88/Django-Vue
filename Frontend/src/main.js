@@ -10,11 +10,13 @@ import DateFilter from "./common/date.filter";
 import ErrorFilter from "./common/error.filter";
 import DataTable from '@andresouzaabreu/vue-data-table';
 import '@andresouzaabreu/vue-data-table/dist/DataTable.css';
+import CuteModal from 'vue-cute-modal'
 
 Vue.config.productionTip = false;
 Vue.filter("date", DateFilter);
 Vue.filter("error", ErrorFilter);
 Vue.component("data-table", DataTable);
+Vue.use(CuteModal)
 
 ApiService.init();
 

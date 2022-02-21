@@ -22,7 +22,13 @@
             <router-link class="text-google" :to="{ name: 'device-add' }">
               <i class="mdi mdi-plus-box mdi-36px"></i>
             </router-link>
-            <data-table v-bind="parametersTable" @actionTriggered="handleAction" />
+            <data-table v-bind="parametersTable" />
+            <cute-modal name="example">
+              <header>Header</header>
+              <div>
+                <h2>Modal content</h2>
+              </div>
+            </cute-modal>
           </div>
         </div>
       </div>
@@ -35,34 +41,19 @@ import axios from "axios";
 import $ from "jquery";
 import { mapGetters } from "vuex";
 import { GET_DEVICES } from "@/store/actions.type";
-import store from "@/store";
+import ActionButton from "@/components/ActionButton";
 
 export default {
   name: "device",
+  components: {
+    ActionButton
+  },
   computed: {
     ...mapGetters(["devices"]),
     parametersTable() {
       return {
-        data: [
-          {
-            no: '1',
-            name: 'Apple',
-            type: 'A-Type',
-            color: 'Black',
-            price: '$1 000'
-          },
-          {
-            no: '2',
-            name: 'Apple',
-            type: 'B-Type',
-            color: 'Gold',
-            price: '$2 000'
-          }
-        ],
+        data: this.devices,
         columns: [
-          {
-            key: "no"
-          },
           {
             key: "name"
           },
@@ -77,17 +68,16 @@ export default {
           },
           {
             key: "action",
-            sortable: false
+            sortable: false,
+            component: ActionButton
           }
         ],
         showEntriesInfo: false
       };
     }
   },
-  methods: {
-    handleAction(actionName, data) {
-      console.log(actionName, data);
-    }
+  mounted() {
+    this.$store.dispatch(GET_DEVICES);
   }
 };
 </script>
@@ -105,5 +95,25 @@ export default {
 }
 .data-table-export-data .form-control {
   width: auto;
+}
+.cute-modal_body {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #000000da;
+}
+
+.modal {
+  text-align: center;
+  background-color: white;
+  height: 500px;
+  width: 500px;
+  margin-top: 10%;
+  padding: 60px 0;
+  border-radius: 20px;
 }
 </style>

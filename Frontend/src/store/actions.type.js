@@ -23,3 +23,6 @@ export const UPDATE_USER = "updateUser";
 export const DEVICE_ADD = "addDevice";
 export const GET_DEVICES = "getDevices";
 export const SET_DEVICES = "setDevices";
+export const VIEW_DEVICE = "viewDevice";
+export const UPDATE_DEVICE = "updateDevice";
+export const DELETE_DEVICE = "deleteDevice";

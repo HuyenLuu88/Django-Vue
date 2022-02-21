@@ -21,7 +21,11 @@
           <div class="card-body col-8 mx-auto">
             <h2 class="card-title text-center mt-3">Please Enter informations</h2>
             <ul v-if="errors" class="error-messages">
-              <li class="bg-white text-danger" v-for="(v, k) in errors" :key="k">{{ k }} {{ v | error }}</li>
+              <li
+                class="bg-white text-danger"
+                v-for="(v, k) in errors"
+                :key="k"
+              >{{ k }} {{ v | error }}</li>
             </ul>
             <form class="forms-sample mt-5" v-on:submit.prevent="onSubmit">
               <div class="form-group">
@@ -66,6 +70,13 @@ export default {
       window.history.back();
     },
     onSubmit() {
+      if (
+        this.name == "" ||
+        this.type == "" ||
+        this.price == "" ||
+        this.color == ""
+      )
+        return true;
       this.$store
         .dispatch(DEVICE_ADD, {
           name: this.name,

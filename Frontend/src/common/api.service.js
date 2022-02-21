@@ -55,6 +55,21 @@ export const TagsService = {
   }
 };
 
+export const DevicesService = {
+  get() {
+    return ApiService.get("deviceList");
+  },
+  create(params) {
+    return ApiService.post("device/add", { device: params });
+  },
+  view(params) {
+    return ApiService.get("device", params);
+  },
+  delete(params) {
+    return ApiService.delete(`device/${params}`);
+  }
+};
+
 export const ArticlesService = {
   query(type, params) {
     return ApiService.query("articles" + (type === "feed" ? "/feed" : ""), {
