@@ -6595,7 +6595,8 @@ textarea.form-control-lg {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 100%;
+  width: 120%;
+  padding: 7px;
   pointer-events: auto;
   background-color: #f2edf3;
   background-clip: padding-box;
@@ -6629,7 +6630,7 @@ textarea.form-control-lg {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #ebedf2;
+  border-bottom: 1px solid #c8c9cc;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px); }
   .modal-header .btn-close {
@@ -6662,7 +6663,7 @@ textarea.form-control-lg {
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0.6875rem;
-  border-top: 1px solid #ebedf2;
+  border-top: 1px solid #c8c9cc;
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px); }
   .modal-footer > * {

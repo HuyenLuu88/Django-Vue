@@ -34,35 +34,12 @@
         </li>
       </ul>
       <ul v-else class="navbar-nav navbar-nav-right">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-outline-secondary">{{ currentUser.username }}</button>
-          <button type="button" class="btn btn-outline-secondary" @click="logout">Logout</button>
-        </div>
-        <li class="nav-item nav-profile dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            id="profileDropdown"
-            href="#"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <div class="nav-profile-img">
-              <img src="img/avatar/face.jpg" alt="image" />
-              <span class="availability-status online"></span>
-            </div>
-            <div class="nav-profile-text">
-              <p class="mb-1 text-black">{{ currentUser.username }}</p>
-            </div>
-          </a>
-          <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-            <a class="dropdown-item" href="#">
-              <i class="mdi mdi-cached me-2 text-success"></i> Activity Log
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <i class="mdi mdi-logout me-2 text-primary"></i> Signout
-            </a>
-          </div>
+        <li class="nav-item nav-logout d-none d-lg-block">
+          <b-dropdown variant="outline-primary">
+            <template #button-content>{{currentUser.username}}</template>
+            <b-dropdown-item>Profile</b-dropdown-item>
+            <b-dropdown-item @click="logout">Logout</b-dropdown-item>
+          </b-dropdown>
         </li>
       </ul>
     </div>
@@ -92,3 +69,9 @@ export default {
   }
 };
 </script>
+<style>
+#__BVID__10 {
+  height: 50px;
+  background: white;
+}
+</style>

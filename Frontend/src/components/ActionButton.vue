@@ -24,7 +24,7 @@ export default {
     handleAction(actionName) {
       if (actionName == "view") {
         this.$store.dispatch(VIEW_DEVICE, this.data.id);
-        this.$root.$cuteModal.open('example');
+        this.$root.$bvModal.show('modal-scoped');
       } else if (actionName == "edit") {
         this.$store.dispatch(UPDATE_DEVICE, this.data.id);
       } else {
